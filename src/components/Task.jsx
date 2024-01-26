@@ -3,7 +3,9 @@ import '../styles/Task.css';
 export default function Task({task}){
     const {name, category = 'todo'} = task;
     const categories = ['inprogress', 'todo', 'done']
-    function handleClick(category)
+    function handleClick(category) {
+            console.log('click handled');
+    }
 
     switch(category) {
         case 'todo':
@@ -11,9 +13,9 @@ export default function Task({task}){
                 <>
                     <div className="task">
                         <h2>{name}</h2>
-                        <button value = 'inprogress' onClick = {() => {handleClick(this.value)}}>in progress</button>
+                        <button value = 'inprogress' onClick = {() => {handleClick()}}>in progress</button>
                         <button value = 'todo' className = 'hidden'>to do</button>
-                        <button value = 'done' onClick = {() => {handleClick}}>done</button>
+                        <button value = 'done' onClick = {() => {handleClick()}}>done</button>
                     </div>
                 </>
             );
@@ -23,8 +25,8 @@ export default function Task({task}){
                     <div className="task">
                         <h2>{name}</h2>
                         <button value = 'inprogress' className = 'hidden'>in progress</button>
-                        <button value = 'todo' onClick = {() => {handleClick}}>to do</button>
-                        <button value = 'done' onClick = {() => {handleClick}}>done</button>
+                        <button value = 'todo' onClick = {() => {handleClick()}}>to do</button>
+                        <button value = 'done' onClick = {() => {handleClick()}}>done</button>
                     </div>
                 </>
             );
@@ -33,8 +35,8 @@ export default function Task({task}){
                 <>
                     <div className="task">
                         <h2>{name}</h2>
-                        <button value = 'inprogress' onClick = {() => {handleClick}}>in progress</button>
-                        <button value = 'todo' onClick = {() => {handleClick}}>to do</button>
+                        <button value = 'inprogress' onClick = {() => {handleClick()}}>in progress</button>
+                        <button value = 'todo' onClick = {() => {handleClick()}}>to do</button>
                         <button value = 'done' className = 'hidden'>done</button>
                     </div>
                 </>

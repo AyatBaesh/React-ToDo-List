@@ -1,20 +1,23 @@
-import { Button } from "bootstrap";
+import { Button } from "bootstrap"; // TODO - remove if unused
 import "../styles/Task.css";
 export default function Task({ task }) {
-  const { name, category = "todo" } = task;
   const categories = ["inprogress", "todo", "done"];
   function handleClick(category) {
     console.log("click handled");
   }
 
   //TODO add marging between buttons
-  //TODO the order of buttons should be: ToDo | In Progress | Done
-  switch (category) {
+  //the order of buttons should be: ToDo | In Progress | Done  --- DONE
+  switch (task.category) {
     case "todo":
       return (
         <>
           <div className="task">
-            <h2>{name}</h2>
+            <h2>{task.name}</h2>
+            <button value="todo" className="btn btn-outline-secondary">
+              to do
+            </button>
+
             <button
               className="btn btn-outline-primary"
               value="inprogress"
@@ -24,9 +27,7 @@ export default function Task({ task }) {
             >
               in progress
             </button>
-            <button value="todo" className="btn btn-outline-secondary">
-              to do
-            </button>
+
             <button
               className="btn btn-outline-success"
               value="done"
@@ -43,10 +44,7 @@ export default function Task({ task }) {
       return (
         <>
           <div className="task">
-            <h2>{name}</h2>
-            <button value="inprogress" className="btn btn-outline-primary">
-              in progress
-            </button>
+            <h2>{task.name}</h2>
             <button
               className="btn btn-outline-secondary"
               value="todo"
@@ -56,6 +54,11 @@ export default function Task({ task }) {
             >
               to do
             </button>
+
+            <button value="inprogress" className="btn btn-outline-primary">
+              in progress
+            </button>
+
             <button
               className="btn btn-outline-success"
               value="done"
@@ -72,16 +75,7 @@ export default function Task({ task }) {
       return (
         <>
           <div className="task">
-            <h2>{name}</h2>
-            <button
-              className="btn btn-outline-primary"
-              value="inprogress"
-              onClick={() => {
-                handleClick();
-              }}
-            >
-              in progress
-            </button>
+            <h2>{task.name}</h2>
             <button
               className="btn btn-outline-secondary"
               value="todo"
@@ -91,6 +85,16 @@ export default function Task({ task }) {
             >
               to do
             </button>
+            <button
+              className="btn btn-outline-primary"
+              value="inprogress"
+              onClick={() => {
+                handleClick();
+              }}
+            >
+              in progress
+            </button>
+
             <button value="done" className="btn btn-outline-success">
               done
             </button>

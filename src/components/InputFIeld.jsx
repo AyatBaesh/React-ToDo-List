@@ -1,23 +1,29 @@
 import React, { useState } from "react";
-
+// import tasks from "../data/Tasks";
 //TODO use flex to have button and input horizontally (https://stackoverflow.com/questions/55476980/aligning-few-components-horizontally-in-react)
 
 // useState hook cause rerender ever time user types characters.
 // but since there is not much inputs, it's fine
 // alternative solution for better performance (if there is any) is to use ref hook
 
-const InputField = () => {
-  const [taskDescription, setTaskDescription] = useState("");
 
+const InputField = ({ addTask }) => {
+  const [taskDescription, setTaskDescription] = useState("");
   const maxInputlength = 128;
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
-
     if (taskDescription.length === 0) return;
 
-    console.log(taskDescription);
+    let newTask = {
+      name: taskDescription,
+      category: "todo",
+    }
+    addTask(newTask);
+    setTaskDescription("");
   };
-
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -37,7 +43,7 @@ const InputField = () => {
               />
               <button
                 className="btn btn-primary"
-                onClick={handleSubmit}
+                type="submit"
                 //TODO how to use bootstrap stuff or chakra ui stuff to get rid of this ugly style?
                 style={{ marginLeft: "10px" }}
               >

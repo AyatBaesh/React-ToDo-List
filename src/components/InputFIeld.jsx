@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import React, { useState } from "react";
 // import tasks from "../data/Tasks";
 //TODO use flex to have button and input horizontally (https://stackoverflow.com/questions/55476980/aligning-few-components-horizontally-in-react)
@@ -20,6 +21,7 @@ const InputField = ({ addTask }) => {
     let newTask = {
       name: taskDescription,
       category: "todo",
+      id: uuidv4(),
     }
     addTask(newTask);
     setTaskDescription("");

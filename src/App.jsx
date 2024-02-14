@@ -11,7 +11,6 @@ function App() {
   const addTask = (newTask) => {
     setdtoIn((currentTasks) => [...currentTasks, newTask]);
   }
-  console.log(typeof dtoIn);
   return (
     <>
       <InputField addTask={addTask} />
@@ -21,5 +20,4 @@ function App() {
     </>
   );
 }
-
 export default App;

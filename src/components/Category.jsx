@@ -1,12 +1,12 @@
 import { v4 as uuidv4 } from 'uuid';
 import Task from "./Task.jsx";
-export default function Category({ name, tasks }) {
+export default function Category({ name, tasks, switchCategory }) {
   return (
     <>
       <div className={name}>
         <h2>{name}</h2>
         {tasks.map((task) => {
-          return <Task task={task} key={uuidv4()} />;
+          return <Task task={task} key={uuidv4()} switchCategory={switchCategory} />;
         })}
       </div>
     </>

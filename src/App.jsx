@@ -3,14 +3,10 @@ import "./styles/App.css";
 import React, { useState } from "react";
 import InputField from "./components/InputFIeld.jsx";
 import CategoryManager from "./components/CategoryManager.jsx";
+import tasks from "./data/Tasks.jsx"
 
 function App() {
-  const [dtoIn, setdtoIn] = useState([
-    { name: "todo1", category: "todo" },
-    { name: "inprogress1", category: "inprogress" },
-    { name: "done1", category: "done" },
-    { name: "failed", category: "wrong" },
-  ]);
+  const [dtoIn, setdtoIn] = useState(tasks);
 
   const addTask = (newTask) => {
     setdtoIn((currentTasks) => [...currentTasks, newTask]);

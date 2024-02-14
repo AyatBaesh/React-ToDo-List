@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import tasks from "../data/Tasks";
 //TODO use flex to have button and input horizontally (https://stackoverflow.com/questions/55476980/aligning-few-components-horizontally-in-react)
 
-// useState hook cause rerender ever time user types characters.
+// useState hook cause rerender every time user types characters.
 // but since there is not much inputs, it's fine
 // alternative solution for better performance (if there is any) is to use ref hook
 
@@ -29,9 +29,9 @@ const InputField = ({ addTask }) => {
       <div className="row justify-content-center">
         <form className="col-md-8 mb-3" onSubmit={handleSubmit}>
           <div className="pb-1">
-            <label htmlFor="taskDescription" className="form-label">
+            {/* <label htmlFor="taskDescription" className="form-label">
               Enter Task Name
-            </label>
+            </label> */}
             <div className="d-flex">
               <input
                 value={taskDescription}
@@ -40,6 +40,7 @@ const InputField = ({ addTask }) => {
                 type="text"
                 className="form-control"
                 maxLength={maxInputlength}
+                placeholder="Enter task name"
               />
               <button
                 className="btn btn-primary"

@@ -1,10 +1,8 @@
-import React, { useState } from "react"
-import { Button } from "bootstrap"; // TODO - remove if unused
 export default function TaskButton({ category, switchCategory, task }) {
-    // const [buttonDisabled, setDisabled] = useState(false);
     function handleClick(e) {
         switchCategory(task, e.target.value);
     }
+
     switch (category) {
         case "todo":
             return (
@@ -14,7 +12,7 @@ export default function TaskButton({ category, switchCategory, task }) {
                     onClick={(e) => {
                         handleClick(e);
                     }}
-
+                    disabled={task.category === category}
                 >
                     to do
                 </button>
@@ -27,7 +25,7 @@ export default function TaskButton({ category, switchCategory, task }) {
                     onClick={(e) => {
                         handleClick(e);
                     }}
-
+                    disabled={task.category === category}
                 >
                     in progress
                 </button>
@@ -39,7 +37,7 @@ export default function TaskButton({ category, switchCategory, task }) {
                 onClick={(e) => {
                     handleClick(e);
                 }}
-
+                disabled={task.category === category}
             >
                 done
             </button>)

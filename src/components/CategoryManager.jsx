@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Category from "./Category.jsx";
 
 export default function CategoryManager({ tasks }) {
-
   //TODO - figure out how to work with custom categories
   const [todos, setTodos] = useState([]);
   const [todosInProgress, setTodosInProgress] = useState([]);
   const [finishedTodos, setFinishedTodos] = useState([]);
-  const categories = useState([todos, todosInProgress, finishedTodos])
+  const categories = useState([todos, todosInProgress, finishedTodos]);
+
   const switchCategory = (taskToSwitch, newCategory) => {
+
     const removeTaskFromCurrentCategory = (currentTasks) => currentTasks.filter(task => task.id != taskToSwitch.id);
+
     const addTaskToNewCategory = (currentTasks) => [taskToSwitch, ...currentTasks];
+
     switch (taskToSwitch.category) {
       case "todo":
         setTodos(prevTodos => removeTaskFromCurrentCategory(prevTodos));
@@ -40,10 +43,6 @@ export default function CategoryManager({ tasks }) {
     setTodos(tasks.filter(task => task.category === "todo"));
     setTodosInProgress(tasks.filter(task => task.category === "inprogress"));
     setFinishedTodos(tasks.filter(task => task.category === "done"));
-
-    // setTodos(newTodos);
-    // setTodosInProgress(newTodosInProgress);
-    // setFinishedTodos(newFinishedTodos);
   }, [tasks]);
 
   return (

@@ -1,11 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Button } from "bootstrap";
-import React, { useState } from 'react'; // TODO - remove if unused
 import "../styles/Task.css";
 import TaskButton from "./Button";
 export default function Task({ task, switchCategory }) {
   const categories = ["todo", "inprogress", "done"];
-  // const [disabled, setDisabled] = useState(false);
   return (
     <>
       <div className="task">
@@ -16,12 +13,10 @@ export default function Task({ task, switchCategory }) {
             switchCategory={switchCategory}
             task={task}
             key={uuidv4()}
-          // disabled={category === task.category}
           />
         }
         )}
       </div>
     </>
   );
-
 }
